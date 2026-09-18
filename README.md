@@ -25,6 +25,42 @@ Open index.html in browser or via Live Server in VS Code.
 - Desktop: >768px (3-column gallery, 2-column hero)
 - Mobile: ≤768px (single column)
 
+- ## Changelog - Part 2 Updates
+
+### New in Part 2
+- Added responsive CSS with Grid and Flexbox
+- Added hover effects and visual polish
+- Optimized for desktop (>768px) and mobile (<768px)
+- Deployed to GitHub Pages: https://mogomotsipheme79-blip.github.io/BOBMANHS-KITCHEN/
+
+### Feedback Fixes from Part 1
+- Improved semantic HTML structure
+- Fixed navigation consistency
+- Added alt text for all images
+- Improved layout from single column to responsive grid
+
+## Testing - Screenshots
+
+### Desktop View
+![Desktop](desktop.png)
+
+### Tablet View
+![Tablet](tablet.png)
+
+### Mobile View
+![Mobile](mobile.png)
+
+Testing done using Chrome DevTools (F12 > Toggle device toolbar)
+
+## References
+- W3Schools (2024) CSS Grid. https://www.w3schools.com/css/css_grid.asp
+- MDN Web Docs (2024) Responsive Design. https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
+- Google Fonts - Poppins. https://fonts.google.com/specimen/Poppins
+
+## Submission Links
+- GitHub Repo: https://github.com/mogomotsipheme79-blip/BOBMANHS-KITCHEN
+- Live Site: https://mogomotsipheme79-blip.github.io/BOBMANHS-KITCHEN/
+
 ## Folder Structure
 /css/style.css
 /images/ (restaurant.jpg, chicken.jpg, burger.jpg, etc.)

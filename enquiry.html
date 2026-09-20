@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry - Quote | BobManh's Kitchen</title>
+    <meta name="description"
+        content="Enquire catering prices at BobManh's Kitchen - Chicken & Chips, Beef Burger, Breakfast, Beef Stew Pretoria.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">BobManh's Kitchen</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="enquiry.html">Enquire</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="max-width:700px; margin:2rem auto; padding:1rem;">
+        <h1>Enquiry - Get Price & Availability</h1>
+        <p> Menu: Chicken & Chips, Burgers, Beef Stew, Breakfast, Drinks</p>
+
+        <form id="enquiryForm">
+            <label>Full Name<br><input type="text" id="enqName" required minlength="3" placeholder="Your name"
+                    style="width:100%; padding:8px;"></label><br><br>
+            <label>Email<br><input type="email" id="enqEmail" required placeholder="you@gmail.com"
+                    style="width:100%; padding:8px;"></label><br><br>
+            <label>Phone (10 digits)<br><input type="tel" id="enqPhone" required placeholder="0821234567"
+                    style="width:100%; padding:8px;"></label><br><br>
+            <label>What do you want to enquire?<br>
+                <select id="enqType" required style="width:100%; padding:8px;">
+                    <option value="">-- Select from your menu --</option>
+                    <option value="chicken_chips">Chicken & Chips - R65</option>
+                    <option value="beef_burger">Beef Burger - R70</option>
+                    <option value="chicken_burger">Chicken Burger - R65</option>
+                    <option value="beef_stew">Beef Stew - R80</option>
+                    <option value="breakfast">Breakfast - R55</option>
+                    <option value="drink">Soft Drink - R20</option>
+                    <option value="catering">Bulk Catering</option>
+                </select>
+            </label><br><br>
+            <label>Quantity & Details<br><input type="text" id="enqPet" required
+                    placeholder="e.g. 10x Chicken & Chips for tomorrow 12pm"
+                    style="width:100%; padding:8px;"></label><br><br>
+            <label>Date Needed & Message<br><textarea id="enqMsg" required minlength="10"
+                    style="width:100%; padding:8px; height:80px;"
+                    placeholder="When do you need it?"></textarea></label><br><br>
+            <button type="submit"
+                style="padding:10px 20px; background:#5d1f2f; color:white; border:none; border-radius:5px; cursor:pointer;">Get
+                My Quote</button>
+            <p id="enqError" style="color:red; font-weight:bold;"></p>
+            <p id="enqSuccess" style="color:green;"></p>
+        </form>
+        <div id="enqResponse"
+            style="display:none; background:#fff3e0; border:2px solid #5d1f2f; padding:1rem; margin-top:1rem; border-radius:10px;">
+        </div>
+    </main>
+    <script src="js/enquiry.js"></script>
+</body>
+
+</html>

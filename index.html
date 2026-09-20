@@ -4,89 +4,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>BOBMANH'S KITCHEN</title>
-
+    <title>BOBMANH'S KITCHEN | Best Chicken, Burgers, Beef Stew in Pretoria</title>
+    <meta name="description"
+        content="BobManh's Kitchen Pretoria - Famous Chicken & Chips R65, Beef Burger R70, Beef Stew R80, Breakfast R55. Order online, catering available.">
+    <meta name="keywords"
+        content="Pretoria restaurant, chicken and chips, beef burger, beef stew, breakfast, BobManhs Kitchen">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tab-btn.active {
+            background: #5d1f2f;
+            color: white;
+        }
+
+        .tab-btn {
+            padding: 8px 16px;
+            border: 1px solid #5d1f2f;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 1rem 0;
+        }
+
+        .accordion-header {
+            background: #f4f4f4;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        .accordion-body {
+            display: none;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+
+        #orderModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        #dynamicMenu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        #map {
+            height: 350px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Website Header -->
     <header>
         <h1>BOBMANH'S KITCHEN</h1>
-
         <nav>
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
             <a href="about.html">About</a>
             <a href="gallery.html">Gallery</a>
+            <a href="enquiry.html">Enquire</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-
-    <!-- Main Home Page -->
     <main>
-
         <!-- Hero Section -->
         <section class="hero">
-
-            <img src="images/restaurant.jpg" alt="BOBMANH'S KITCHEN restaurant" class="hero-image">
-
+            <img src="images/restaurant.jpg" alt="BOBMANH'S KITCHEN restaurant Pretoria" class="hero-image gallery-img"
+                style="cursor:pointer;">
             <div class="hero-text">
                 <h2>Good Food. Good Vibes.</h2>
-
-                <p>
-                    Welcome to BOBMANH'S KITCHEN, a place where good food,
-                    friendly service and a welcoming atmosphere come together.
-                </p>
-
+                <p>Welcome to BOBMANH'S KITCHEN, good food, friendly service, Pretoria's favourite.</p>
                 <a href="menu.html" class="button">View Menu</a>
-                <a href="contact.html" class="button">Contact Us</a>
-
+                <a href="enquiry.html" class="button">Get Quote</a>
+                <button id="openModalBtn" class="button"
+                    style="background:#5d1f2f;color:white;border:none;cursor:pointer;">How to Order?</button>
             </div>
-
         </section>
 
-        <!-- Featured Food Section -->
-        <section class="featured">
+        <!-- TABS FOR PART 3 (30 marks) -->
+        <section style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
+            <h2>Our Menu Categories</h2>
+            <div>
+                <button class="tab-btn active" data-tab="tab-chicken">Chicken & Chips</button>
+                <button class="tab-btn" data-tab="tab-burger">Burgers</button>
+                <button class="tab-btn" data-tab="tab-stew">Beef Stew & Breakfast</button>
+            </div>
+            <div id="tab-chicken" class="tab-content" style="display:block;">
+                <h3>Chicken & Chips - R65</h3>
+                <p>Crispy golden chicken with chips. Best in Pretoria.</p>
+                <img src="images/chicken.jpg" alt="Chicken & Chips" class="gallery-img"
+                    style="width:200px;border-radius:8px;cursor:pointer;">
+            </div>
+            <div id="tab-burger" class="tab-content">
+                <h3>Burgers</h3>
+                <p>Beef Burger R70 - Chicken Burger R65 with fresh toppings.</p>
+                <img src="images/burger.jpg" alt="Beef Burger Pretoria" class="gallery-img"
+                    style="width:200px;border-radius:8px;cursor:pointer;">
+            </div>
+            <div id="tab-stew" class="tab-content">
+                <h3>Beef Stew R80 & Breakfast R55</h3>
+                <p>Tender stew with rice & veg. Breakfast served 7am-11am.</p>
+                <img src="images/restaurant.jpg" alt="Beef Stew" class="gallery-img"
+                    style="width:200px;border-radius:8px;cursor:pointer;">
+            </div>
+        </section>
 
+        <!-- SEARCH + DYNAMIC MENU -->
+        <section style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
+            <h2>Search Our Menu</h2>
+            <input type="text" id="menuSearch" placeholder="Search: e.g. chicken, burger, stew..."
+                style="width:100%;padding:10px;border-radius:5px;border:1px solid #ccc;">
+            <div id="dynamicMenu"></div>
+        </section>
+
+        <!-- Featured Food Section (keep yours) -->
+        <section class="featured" style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
             <h2>Our Popular Meals</h2>
-
             <div class="food-items">
-
                 <div class="food-card">
                     <h3>Chicken & Chips</h3>
-                    <p>Crispy chicken served with golden chips.</p>
+                    <p>Crispy chicken with golden chips.</p>
                     <p><strong>R65</strong></p>
                 </div>
-
                 <div class="food-card">
                     <h3>Beef Burger</h3>
-                    <p>A tasty homemade burger with fresh toppings.</p>
+                    <p>Tasty homemade burger with fresh toppings.</p>
                     <p><strong>R70</strong></p>
                 </div>
-
                 <div class="food-card">
-                    <h3>Wings & Chips</h3>
-                    <p>Juicy chicken wings served with chips.</p>
-                    <p><strong>R60</strong></p>
+                    <h3>Beef Stew</h3>
+                    <p>Stew with rice & veg.</p>
+                    <p><strong>R80</strong></p>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- ACCORDION FAQ -->
+        <section style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
+            <h2>FAQ</h2>
+            <div class="accordion-header">Do you deliver in Pretoria?</div>
+            <div class="accordion-body">Yes, we deliver within 10km. Delivery R30. Free for orders over R300.</div>
+            <div class="accordion-header">How long does food take?</div>
+            <div class="accordion-body">Chicken & Burgers 15 mins, Beef Stew 20 mins, Bulk catering needs 1 day notice.
+            </div>
+            <div class="accordion-header">Do you do catering?</div>
+            <div class="accordion-body">Yes! From R65 pp, min 20 people. Use Enquiry page for quote.</div>
+        </section>
+
+        <!-- MAP -->
+        <section style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
+            <h2>Find Us in Pretoria</h2>
+            <div id="map"></div>
+            <p>BobManh's Kitchen - Pretoria, Gauteng. Open 7am-9pm daily.</p>
+        </section>
     </main>
 
-    <!-- Footer -->
+    <!-- MODAL -->
+    <div id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>How to Order</h2>
+            <p>1. Browse menu tabs above<br>2. Search for your favourite<br>3. Click Enquire for bulk price<br>4. Or
+                visit us - see map<br>5. Call 081 806 6503</p>
+            <a href="enquiry.html" class="button">Go to Enquiry</a>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox"><img id="lightboxImg" src="" alt=" enlarged"></div>
+
     <footer>
-        <p>&copy; 2026 BOBMANH'S KITCHEN. All rights reserved.</p>
+        <p>&copy; 2026 BOBMANH'S KITCHEN. All rights reserved. Pretoria.</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

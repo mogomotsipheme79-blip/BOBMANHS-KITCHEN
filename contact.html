@@ -9,6 +9,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -67,6 +70,8 @@
 
             </div>
 
+            <h2>Find Us</h2>
+            <div id="map" style="height: 300px; width: 100%; border-radius:10px; margin-top:15px;"></div>
 
             <!-- Contact Form -->
             <div class="contact-form">
@@ -74,6 +79,8 @@
                 <h3>Send Us A Message</h3>
 
                 <form>
+
+
 
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -89,7 +96,7 @@
 
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
-                        required></textarea>
+                              required></textarea>
 
 
                     <button type="submit">Send Message</button>
@@ -108,6 +115,9 @@
         <p>&copy; 2026 BOBMANH'S KITCHEN. All rights reserved.</p>
         <p>Good Food. Good Vibes.</p>
     </footer>
+
+    <script src="js/main.js"></script>
+
 
 </body>
 

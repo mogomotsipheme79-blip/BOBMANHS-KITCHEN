@@ -9,6 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -48,32 +49,24 @@
             <div class="gallery-grid">
 
                 <div class="gallery-item">
-                    <img src="images/chicken.jpg" alt="Chicken and chips meal">
+                    <a href="images/chicken.jpg" data-lightbox="bobmans-food" data-title="Chicken & Chips">
+                        <img src="images/chicken.jpg" alt="Chicken and chips meal">
+                    </a>
                     <p>Chicken & Chips</p>
                 </div>
 
                 <div class="gallery-item">
-                    <img src="images/burger.jpg" alt="Beef burger meal">
+                    <a href="images/burger.jpg" data-lightbox="bobmans-food" data-title="Beef Burger">
+                        <img src="images/burger.jpg" alt="Beef burger meal">
+                    </a>
                     <p>Beef Burger</p>
                 </div>
 
                 <div class="gallery-item">
-                    <img src="images/wings.jpg" alt="Chicken wings and chips">
+                    <a href="images/wings.jpg" data-lightbox="bobmans-food" data-title="Chicken Wings">
+                        <img src="images/wings.jpg" alt="Chicken wings meal">
+                    </a>
                     <p>Chicken Wings</p>
-                </div>
-
-
-                <!-- Drinks -->
-                <div class="gallery-item">
-                    <img src="images/drink.jpg" alt="Cold refreshing drink">
-                    <p>Refreshing Drinks</p>
-                </div>
-
-
-                <!-- Dessert -->
-                <div class="gallery-item">
-                    <img src="images/dessert.jpg" alt="Dessert served at the restaurant">
-                    <p>Dessert</p>
                 </div>
 
 
@@ -108,5 +101,6 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
